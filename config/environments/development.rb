@@ -33,5 +33,12 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
   config.active_job.queue_adapter = :delayed_job
+
+  # Uncomment following to use SMTP settings for gmail 
+  config.action_mailer.smtp_settings = {
+    :address              => "localhost",
+    :port                 => 25,
+    :enable_starttls_auto => false,
+  }
   
 end

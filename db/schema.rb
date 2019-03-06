@@ -13,10 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141115060216) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "delayed_jobs", force: true do |t|
+  create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
     t.text     "handler",                null: false
@@ -30,9 +27,9 @@ ActiveRecord::Schema.define(version: 20141115060216) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
